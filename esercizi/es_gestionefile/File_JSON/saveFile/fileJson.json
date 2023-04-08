@@ -1,0 +1,21 @@
+{
+    "nome": "La mia azienda",
+    "sede": "Via Roma 1, 00100 Roma",
+    "contatti": {
+      "telefono": "+39 06 1234567",
+      "email": "info@lamiaazienda.it"
+    },
+    "dipendenti": [
+      {
+        "nome": "Mario Rossi",
+        "eta": 32,
+        "ruolo": "responsabile vendite"
+      },
+      {
+        "nome": "Anna Bianchi",
+        "eta": 28,
+        "ruolo": "responsabile marketing"
+      }
+    ]
+  }
+  
