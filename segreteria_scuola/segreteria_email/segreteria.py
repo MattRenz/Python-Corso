@@ -8,15 +8,17 @@ import studenti as stud
 import mail
 
 # funzioni
+import FUNZIONI.CreazioniCartelle as creazioneCartelle
+creazioneCartelle.CreazioneCartelle()
+creazioneCartelle.GetPercorsoDocenti()
 import FUNZIONI.leggi_Docenti_Studenti as leggi
 import FUNZIONI.salva_Docente_Studente as salva
 import FUNZIONI.leggiEmail_Docenti_Studenti as leggiEmail
 import FUNZIONI.getEmail as getmail
 
-pathWindowsDocentiUniversita = "C:\\Users\\Matteo\\OneDrive\\Desktop\\GIT_CLONE_PUSH\\segreteria_email\\DB_Docenti" #input("Path dove salvare i docenti: ")
-pathWindowsStudentiUniversita = "C:\\Users\\Matteo\\OneDrive\\Desktop\\GIT_CLONE_PUSH\\segreteria_email\\DB_Studenti" #input("Path dove salvare gli studenti")
+pathWindowsDocentiUniversita = creazioneCartelle.GetPercorsoDocenti()
+pathWindowsStudentiUniversita = creazioneCartelle.GetPercorsoStudenti()
                                     
-# pathWindowsDB_Password = "C:\\Users\\Matteo\\OneDrive\\Desktop\\GIT_CLONE_PUSH\\segreteria_email\\DB_Password" #input("Path dove salvare la tua password: ")
 
 sNomeServer = "smtp.gmail.com"
 iServerPort = 587

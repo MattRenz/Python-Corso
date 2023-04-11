@@ -1,9 +1,9 @@
-def SalvaPassword(contenutoFile):
+# def SalvaPassword(contenutoFile):
         
-    nomeFile = "path" + "/pswd.csv"
+#     nomeFile = "path" + "/pswd.csv"
 
-    contenutoFile = contenutoFile
+#     contenutoFile = contenutoFile
     
-    file = open(nomeFile, "w")
-    file.write(contenutoFile)
-    file.close
+#     file = open(nomeFile, "w")
+#     file.write(contenutoFile)
+#     file.close

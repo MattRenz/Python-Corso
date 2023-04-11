@@ -1,4 +1,3 @@
-
 def getEmail(filestudenti, pathWindowsStudentiUniversita):
     
     listaemail = []

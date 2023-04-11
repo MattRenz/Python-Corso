@@ -1,7 +1,5 @@
 import persona as proc
 
-DBpasswordUtente = ""
-
 class Studente(proc.persona):
 
     def __init__(self, nome, cognome, matricola, mail, listaVoti = None):

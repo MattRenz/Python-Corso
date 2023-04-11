@@ -1,6 +1,5 @@
 SEGRETERIA EMAIL 
 
-
 Descrizione:
 
 Questo prgramma gestisce una segreteria, salvando studenti e docenti e utilizzando i loro attributi per affetturare vari metodi
@@ -29,7 +28,7 @@ Docenti:
     
 
 Il programma inizialemente ci chiederà di inserire l'email che poi useremo per il login quando invieremo le email, ci chiederà anche 
-la password che inseriremo una sola volta, se la password poi rimane salvata nel file verà usata sempre quella presente nel file. 
+la password che inseriremo una sola volta, la password poi rimane salvata nel file verà usata sempre quella presente nel file. 
 
 Finito di impostare password ed email per il login, possiamo usare i vari metodi delle classi docenti e studenti
 
@@ -39,23 +38,19 @@ Dipendenze (librerie):
 Le librerie che usa questo progrmma sono: smtplib / os / sys / re 
 
 
-Possibili errori
-
-Bisogna inserire il proprio path di DB_Password, DB_Studenti, DB_Docenti, nelle varabile richieste, ubicazione variabili:
-
-self.__DB_Password in (mail.py, segreteria.py, studenti.py e salvaPassword) Path di salvataggio password
-
-pathWindowsDocentiUniversita Path dove veranno salvati i docenti, inserire il path nei file:
-segreteria.py / get.Email.py / leggi_Docenti_Studenti.py / leggiEmail_Docenti_Studenti.py / salva_Docente_Studente.py
-
-pathWindowsStudentiUniversita Path dove veranno salvati gli studenti, inserire il path nei file: 
-segreteria.py / get.Email.py / leggi_Docenti_Studenti.py / leggiEmail_Docenti_Studenti.py / salva_Docente_Studente.py
-
-
 Note: 
+
+Il programma salvera le auto in questo path Windows: "C:\Users\nome utente che ha effetuato l'accesso\Programma_SegreteriaEmail"
+Appena si esegue il prograamma si andranno a creare in automatico i DB dove saranno salvati i file per docenti, studenti, e password
+
 
 All'intenro della cartella FUNZIONI sono presenti tutte le funzioni e procedure che vengono richiamate dentro segreteria.py
 
 ELIMINARE I FILE .gitgnore prima di iniziare l'esecuzione del programma
 
+
+Possibili errori:
+
+Salvera le cartelle in automatico solo su sistema operativo Windows su sistema operativo Linux o altri bisognerà inserire il path di 
+dove si vogliono salvare le cartelle.
 

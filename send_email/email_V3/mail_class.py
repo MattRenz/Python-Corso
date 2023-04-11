@@ -1,22 +1,20 @@
 import smtplib 
 import os
-import FUNZIONI.CreazioniCartelle as creazioneCartelle
+import CreazioneCartelle 
 
+class Mail:
 
-
-class Mail():
-
-    def __init__(self,nome_server, porta_server, nome_utente):
-
-        self.__DB_Password = creazioneCartelle.GetPercorsoDBPswd() + "/pswd.data" 
+    def __init__(self, nome_server, porta_server, nome_utente):
         
+        self.__DB_Password = CreazioneCartelle.GetPercorsoPswd()
+        self.__DB_Password = self.__DB_Password + "/pwsd.data"
         self.__nomeServer = nome_server
         self.__portaServer = porta_server
         self.__nomeUtente = nome_utente
         self.OttieniPassword()
         
-
         
+
     def SendMail(self,sDest,sObj,sContent):
             
         print("\n Devo mandare una mail a " + sDest)
@@ -37,7 +35,7 @@ class Mail():
         
         print("Messaggio inviato")
 
-    
+      
     def OttieniPassword(self):
 
         letturaFile = 0 
@@ -60,31 +58,43 @@ class Mail():
 
             while letturaFile == 0:
 
-                password = input("Password: ")
-                
-                file = open(self.__DB_Password, "w")
+                password = input("Password: ") # gli diamo la password 
+
+                file = open(self.__DB_Password, "w") # e la scrive dentro il file che gli abbiamo asseganto precedentemene
                 file.write(password)
                 file.close()
-                self.__passwd_utetne = password 
+
+                self.__passwd_utetne = password # e ora la password che passerà nel login sarà la password che ha dato l'utente
                 
                 letturaFile = 1
 
 
-    def SendMailMedia(self, destinatario):
-        
-        self.__email = smtplib.SMTP(self.__nomeServer, self.__portaServer)
-        
-        self.__email.ehlo()
-        self.__email.starttls()
-        self.__email.login(self.__nomeUtente, self.__passwd_utetne)
-        
-        ogg = "Avvertenza media esami universitari"
-        contenuto = f'Gentile studente la avvertiamo che la sua media e al di sotto del limite consentito. Per tanto la invitiamo a riportarla sopra il 18' 
-        
-        message = 'Subject: ' + ogg + '\n\n' + contenuto
+            
+                    
 
-        self.__email.sendmail(self.__nomeUtente, destinatario, message)
-        self.__email.quit()
-                
+
+
+
+
+
+            
+
+
+   
+
+     
+
+
+    
+    
+
+
+
+
         
+
         
+
+
+
+    

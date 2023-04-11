@@ -3,9 +3,12 @@ import sys
 import re
 import docente as doc
 import studenti as stud
+import CreazioneCartelle 
 
-pathWindowsDocentiUniversita = input("Inserisci path dove salvare i docenti: ")
-pathWindowsStudentiUniversita = input("Inserisci path dove salvare gli studenti: ")
+CreazioneCartelle.CreazioneCartelle()
+
+pathWindowsDocentiUniversita = CreazioneCartelle.GetPercorsoDocenti()
+pathWindowsStudentiUniversita = CreazioneCartelle.GetPercorsoStudenti()
 
 def SalvaDocenti(csDocente):
 
@@ -46,7 +49,6 @@ def leggiDocente(sFileDocenti):
         csDocente = doc.docente(nome, cognome, Idetnificativo, mail)
     
     return csDocente
-
 
 def SalvaStudenti(csStudente):
     
@@ -124,15 +126,8 @@ while(1):
                 sNome = input("\n Inserisci nome docente: ")
                 sCognome = input("\n Inserisci cognome docente: ")
                 sIdetnificativo = input("\n Inserisci Identificativo docente: ")
-                
-                while(1):
-                    mail = input(f'\n Mail: ')
-                    controllo = r'\b[A-Z a-z 0-9 ._%+-]+@[A-Z a-z 0-9]+\.[A-Z a-z]{2,7}\b' # controllo email
-                    if not re.findall(controllo, mail):
-                        print("\n Invlaid Mail, Try again")
-                    elif re.findall(controllo, mail):
-                        break
-                           
+                mail = input(f'\n Mail: ')
+                        
                 sNuovoDocente = doc.docente(sNome, sCognome, sIdetnificativo, mail) 
                 lNuovoDocente.append(sNuovoDocente)
                 SalvaDocenti(sNuovoDocente)
@@ -203,17 +198,11 @@ while(1):
 
                 nome = input("Nome: ")
                 cognome = input("Cognome: ")
-                email = input("Email: ")
                 matricola = input("Matricola: ")
-                             
-                while(1):
-                    controllo = r'\b[A-Z a-z 0-9 ._%+-]+@[A-Z a-z 0-9]+\.[A-Z a-z]{2,7}\b' # controllo email
-                    if not re.findall(controllo, email):
-                        print("\n Invlaid Mail, Try again")
-                    elif re.findall(controllo, email):
-                        break
-                
-                nuovoStudente = stud.Studente(nome,cognome,email,matricola)
+                mail = input(f'\n Mail: ')
+
+                    
+                nuovoStudente = stud.Studente(nome,cognome,mail,matricola)
                 SalvaStudenti(nuovoStudente)
                   
             # (2) AGGIUNGI VOTO

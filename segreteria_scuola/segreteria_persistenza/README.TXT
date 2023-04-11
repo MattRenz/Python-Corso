@@ -32,16 +32,16 @@ Dipendenze (librerie):
 Le librerie che usa questo progrmma sono: smtplib / os / sys / re 
 
 
-Possibili errori
+Note:
 
-inserire il proprio path delle cartelle salvate dentro il progetto, DB_Docenti e DB_Studenti, qui all'interno veranno 
-creati i file del singolo docente e studente. Aggiungere il path su: 
-
-pathWindowsDocentiUniversita (segreterai.py)
-pathWindowsStudentiUniversita (segreteria.py)
+Il programma salvera le auto in questo path Windows: "C:\Users\nome utente che ha effetuato l'accesso\Programma_Segreteria"
+Appena si esegue il prograamma si andranno a creare in automatico i DB dove saranno salvati i file per docenti, studenti, e password
 
 
+Possibili errori:
 
+Salvera le cartelle in automatico solo su sistema operativo Windows su sistema operativo Linux o altri bisognerà inserire il path di 
+dove si vogliono salvare le cartelle.
 
 
 

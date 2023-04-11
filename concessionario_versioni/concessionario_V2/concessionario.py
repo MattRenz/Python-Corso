@@ -2,22 +2,22 @@ import os
 import sys
 import automobili
 import automobili_usate
+import CreazioneCartelle as pathCartelle
+pathCartelle.CreazioneCartelle()
 
-print("\n Inserire il path di dove si vouole salvare le proprie auto")
+pathAutoNuove = pathCartelle.GetPercorsoAutoNuove()
+pathAutoUsate = pathCartelle.GetPercorsoAutoUsate()
 
-pathLinuxAutoNuove = input("Path auto nuove : ")
-# \\concessionario_versioni\\concessionario_V2\\DB_Auto_nuove
-pathLinuxAutoUsate = input("Path auto usate: ")
-# \\concessionario_versioni\\concessionario_V2\\DB_Auto_usate
+os.getlogin()
 
 # FUNZIONI AUTO NUOVE
 def SalvaAuto(nuovaAuto):
 
-    sNomeFile = pathLinuxAutoNuove + "/" + nuovaAuto.GetTarga().upper() + ".csv"
 
-    
+    sNomeFile = pathAutoNuove + "/" + nuovaAuto.GetTarga().upper() + ".csv"
+
     sContenutoFile = automobili.automobili.ContenutoFile(nuovaAuto)
-
+     
     file = open(sNomeFile, "w")
     file.write(sContenutoFile)
     file.close()
@@ -26,7 +26,7 @@ def GetCarburante(currfile, carburanteUser):
 
     listaCarburantiAuto = []
    
-    sNomeFile = pathLinuxAutoNuove + "/" + currfile 
+    sNomeFile = pathAutoNuove + "/" + currfile 
     file = open(sNomeFile, "r")
     contenutoFile = file.readline()
     file.close()
@@ -53,7 +53,7 @@ def GetTargaAuto(currfile):
     
     listaTargeAuto = []
     
-    sNomeFile = pathLinuxAutoNuove + "/" + currfile 
+    sNomeFile = pathAutoNuove + "/" + currfile 
     
     file = open(sNomeFile, "r")
     contenutoFile = file.readline()
@@ -74,7 +74,7 @@ def GetTargaAuto(currfile):
 
 def LeggiAuto(currfile):
     
-    sNomeFile = pathLinuxAutoNuove + "/" + currfile
+    sNomeFile = pathAutoNuove + "/" + currfile
     
     file = open(sNomeFile, "r")
     contenutoFile = file.readline()
@@ -112,10 +112,10 @@ def LeggiAuto(currfile):
 # FUNZIONI AUTO USATE
 def SalvaAutoUsate(nuovaAutoUsata):
     
-    nomefile = pathLinuxAutoUsate + "/" + nuovaAutoUsata.GetTargaAutoUsata().upper() + ".csv"
+    nomefile = pathAutoUsate + "/" + nuovaAutoUsata.GetTargaAutoUsata().upper() + ".csv"
     
     stringaFile = automobili_usate.automobiliUsate.ContenutoFileAutoUsata(nuovaAutoUsata)
-    
+
     file = open(nomefile, "w")
     file.write(stringaFile)
     file.close()
@@ -124,7 +124,7 @@ def GetCarburanteAutoUsate(currfile, carburanteUser):
     
     listaCarburantiAutoUsate = []
    
-    sNomeFile = pathLinuxAutoUsate + "/" + currfile 
+    sNomeFile = pathAutoUsate + "/" + currfile 
     file = open(sNomeFile, "r")
     contenutoFile = file.readline()
     file.close() 
@@ -151,7 +151,7 @@ def GetCarburanteAutoUsate(currfile, carburanteUser):
 
 def LeggiAutoUsata(currFile):
     
-    nomefile = pathLinuxAutoUsate + "/" + currFile
+    nomefile = pathAutoUsate + "/" + currFile
     
     file = open(nomefile, "r")
     contenitofile = file.readline()
@@ -189,7 +189,7 @@ def GetTargaAutoUsata(currfile):
     
     listaTargeAutosate = []
 
-    nomefile = pathLinuxAutoUsate + "/" + currfile
+    nomefile = pathAutoUsate + "/" + currfile
     
     file = open(nomefile, "r")
     contenutoFile = file.readline()
@@ -266,7 +266,7 @@ while(1):
                         targaAuto = input("\n Targa: ").upper()
                         optional = input("\n Optional: ")
                         
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         trovaTarga = 0
                         for targa in listaFile:
                             
@@ -288,7 +288,7 @@ while(1):
                         
                         targaUserRemove = input("\n Targa: ").upper()
                         
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         OptionalRemove = 0
                         for targa in listaFile:
                             if targa == targaUserRemove + ".csv":
@@ -306,10 +306,10 @@ while(1):
                     if OperAuto == "4":
                                             
                         targaUser = input("Targa: ").upper()
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         
                         trovaTargaValore = 0
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         for targa in listaFile:
                     
                             if targa == targaUser + ".csv":
@@ -333,7 +333,7 @@ while(1):
                         targaUser = input("\n Inserie la targa dell'auto: ").upper()
                         
                         trovaTargaAuto = 0
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         for targa in listaFile:
                             
                             if targa == targaUser + ".csv": 
@@ -350,7 +350,7 @@ while(1):
                         targaUser = input("\n Inserisci targa: ").upper()
                         
                         trovaTargaOptional = 0
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         for targa in listaFile:
                             
                             if targa == targaUser + ".csv":
@@ -364,7 +364,7 @@ while(1):
                     # TROVA TARGHE
                     if Oper002 == "3":
 
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         for targa in listaFile:
                             nuovaAuto = GetTargaAuto(targa)
                             for i in nuovaAuto:
@@ -373,7 +373,7 @@ while(1):
                     # TROVA CARBURANTE
                     if Oper002 == "4":
                         
-                        listaFile = os.listdir(pathLinuxAutoNuove)
+                        listaFile = os.listdir(pathAutoNuove)
                         
                         carburanteUser = input("\n Tipo carburante: ").lower()
                             
@@ -387,8 +387,7 @@ while(1):
     
                              
                     
-            
-
+        
     # AUTO USATE 
     if Oper003 == "2":
         print("\n Sezione auto usate")
@@ -437,7 +436,7 @@ while(1):
                     targaUser = input("\n Inserisci targa: ").upper()
                     optional = input("\n Optional: ")
                     
-                    listaFileUsate = os.listdir(pathLinuxAutoUsate)
+                    listaFileUsate = os.listdir(pathAutoUsate)
                     trovaTargaOptionalUsata = 0
                     for targa in listaFileUsate:
                         
@@ -459,7 +458,7 @@ while(1):
                     
                     targaUserRemove = input("\n Targa: ").upper()
                     
-                    listaFileUsate = os.listdir(pathLinuxAutoUsate)
+                    listaFileUsate = os.listdir(pathAutoUsate)
 
                     OptionalRemove = 0
                     for targa in listaFileUsate:
@@ -479,7 +478,7 @@ while(1):
                 if OperAuto == "4":
                     targaUser = input("\n Targa: ").upper()
 
-                    listaFile = os.listdir(pathLinuxAutoUsate)
+                    listaFile = os.listdir(pathAutoUsate)
                     trovaTarga = 0
 
                     for targa in listaFile:
@@ -510,7 +509,7 @@ while(1):
                         targaUser = input("\n Inserie la targa dell'auto: ").upper()
                         
                         trovaTargaAuto = 0
-                        listaFile = os.listdir(pathLinuxAutoUsate)
+                        listaFile = os.listdir(pathAutoUsate)
                         for targa in listaFile:
                             
                             if targa == targaUser + ".csv": 
@@ -527,7 +526,7 @@ while(1):
                         targaUser = input("\n Inserisci targa: ").upper()
                         
                         trovaTargaOptional = 0
-                        listaFile = os.listdir(pathLinuxAutoUsate)
+                        listaFile = os.listdir(pathAutoUsate)
                         for targa in listaFile:
                             
                             if targa == targaUser + ".csv":
@@ -543,7 +542,7 @@ while(1):
                     # TROVA TARGHE
                     if Oper002 == "3":
 
-                        listaFile = os.listdir(pathLinuxAutoUsate)
+                        listaFile = os.listdir(pathAutoUsate)
                         for targa in listaFile:
                             nuovaAutoUsata = GetTargaAutoUsata(targa)
                             for i in nuovaAutoUsata:
@@ -552,7 +551,7 @@ while(1):
                     # TROVA CARBURANTE
                     if Oper002 == "4":
                         
-                        listaFile = os.listdir(pathLinuxAutoUsate)
+                        listaFile = os.listdir(pathAutoUsate)
         
                         carburanteUser = input("\n Tipo carburante: ").lower()
                             
